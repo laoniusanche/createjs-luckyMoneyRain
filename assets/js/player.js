@@ -40,7 +40,10 @@
         },
         explode:function(){
             this.sprite.gotoAndPlay("explode");
-            stage.removeChild(this.sprite);
+            var _this = this;
+            setTimeout(function(){
+                _this.normal();
+            },500)
         },
         picsize:function(){
             return {

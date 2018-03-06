@@ -50,6 +50,7 @@ function handleComplete() {
     player = createPlayer(C_W / 2 - playerImage.width / 4 * ratio, C_H - playerImage.height * ratio, playerImage);
 
     stage.canvas.addEventListener("touchstart", function (e) {
+        e.preventDefault();
         stage.canvas.addEventListener('touchmove', function (e) {
             //鼠标位置
             var moveX = e.targetTouches[0].clientX * 2 - player.picsize().w / 2;//当前适应retina，画布宽高为两倍
@@ -106,6 +107,7 @@ function handleTick() {
                         scoreTipCreate(scoreReduce);
                         fallDownArr[i].explode();
                         fallDownArr.splice(i, 1);
+                        player.explode();
                     }
                 }
             } else if (fallDownArr[i].picsize().y >= C_H) {
